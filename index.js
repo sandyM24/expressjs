@@ -1,4 +1,5 @@
 const express = require('express');
+const debug = require('debug')('app:startup');
 const app = express();
 
 const courses = [
@@ -17,13 +18,5 @@ app.get('/api/courses', (req, res) => {
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+  debug(`Listening on port ${port}`);
 });
-
-// NOTE: Routes with parameters and query
-/*
-  app.get('/test/:id', (req, res) => {
-    res.send(req.params.id);
-    res.send(req.query);
-  });
-*/
